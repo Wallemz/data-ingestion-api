@@ -10,15 +10,14 @@ env:
   AZURE_FUNCTIONAPP_NAME: ${{ vars.AZURE_FUNCTION_APP_NAME }}
   AZ_FN_APP_PUBLISH_PROFILE: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_889F1DDFFEFA43718D7757FE2F1925DF }}
   AZURE_FUNCTIONAPP_PACKAGE_PATH: '.'
-  PYTHON_VERSION: '3.11.2'
-  UBUNTU_VERSION: '20.04'
-
+  
 jobs:
   build:
-    runs-on: $UBUNTU_VERSION
+    runs-on: ubuntu-20.04
     strategy:
       matrix:
-        python-version: [$PYTHON_VERSION]
+        python-version: [3.11.2]
+
     
     steps:
     - name: Checkout repository
@@ -62,7 +61,7 @@ jobs:
           !venv/
 
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     needs: build
     
     steps:
