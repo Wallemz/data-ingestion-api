@@ -1,0 +1,10 @@
+# DO NOT include azure-functions-worker in this file
+# The Python Worker is managed by Azure Functions platform
+# Manually managing azure-functions-worker may cause unexpected issues
+
+azure_cosmos==4.7.0
+azure-functions == 1.20.0
+azure_servicebus==7.12.2
+email_validator==2.2.0
+pydantic==2.8.2
+pytest==8.3.2
