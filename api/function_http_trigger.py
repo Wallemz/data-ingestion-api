@@ -1,10 +1,10 @@
-import json
 import azure.functions as func
+import json
 import logging
-from pydantic import ValidationError
-from services.cosmos_db_service import CosmosDBService
 from interfaces.sender_interface import MessageSender
 from models.user_schema import UserSchema
+from pydantic import ValidationError
+from services.cosmos_db_service import CosmosDBService
 from services.service_bus_service import ServiceBusService
 
 http_trigger_bp = func.Blueprint() 

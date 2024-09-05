@@ -1,7 +1,7 @@
 import os
 from azure.servicebus import ServiceBusClient, ServiceBusMessage
-from models.user_schema import UserSchema
 from interfaces.sender_interface import MessageSender
+from models.user_schema import UserSchema
 
 class ServiceBusService(MessageSender):
     """Implementation of MessageSender for Azure Service Bus."""
