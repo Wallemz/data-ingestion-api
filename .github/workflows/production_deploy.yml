@@ -31,7 +31,8 @@ jobs:
     - name: Create and start virtual environment
       run: |
         python -m venv venv
-        source api/venv/bin/activate
+        source api/.venv/bin/activate
+
         
     # Cache Python dependencies to speed up builds
     - name: Cache Python dependencies
