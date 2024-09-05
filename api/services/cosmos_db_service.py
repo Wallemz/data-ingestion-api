@@ -27,3 +27,17 @@ class CosmosDBService(PersistenceServiceInterface):
             self.container.create_item(body=user_data_dict)
         except Exception as e:
             raise RuntimeError(f"Error saving data to Cosmos DB: {str(e)}")
+
+    def get_user_data(self, user_id: str) -> dict:
+        """Retrieve user data from Cosmos DB"""
+        try:
+            query = f"SELECT * FROM c WHERE c.userId = '{user_id}'"
+            items = list(self.container.query_items(
+                query=query,
+                enable_cross_partition_query=True
+            ))
+            if not items:
+                return None
+            return items[0]  # userId is unique
+        except Exception as e:
+            raise RuntimeError(f"Error retrieving data from Cosmos DB: {str(e)}")
