@@ -1,8 +1,9 @@
 import os
 import uuid
 from azure.cosmos import CosmosClient
-from models.user_schema import UserSchema
 from interfaces.persistence_interface import PersistenceServiceInterface
+from models.user_schema import UserSchema
+
 
 class CosmosDBService(PersistenceServiceInterface):
     def __init__(self):

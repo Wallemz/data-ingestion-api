@@ -1,9 +1,9 @@
-import logging
-import os
 import azure.functions as func
 import json
-from models.user_schema import UserSchema
+import logging
+import os
 from interfaces.persistence_interface import PersistenceServiceInterface
+from models.user_schema import UserSchema
 from services.cosmos_db_service import CosmosDBService
 
 SERVICE_BUS_SUBSCRIPTION = os.getenv("SERVICE_BUS_SUBSCRIPTION")
