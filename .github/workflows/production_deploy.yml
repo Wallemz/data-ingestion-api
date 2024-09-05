@@ -48,10 +48,13 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r api/requirements.txt
 
-    - name: Lint with ruff
+    - name: Install ruff
       run: |
         pip install ruff
-        ruff api/
+
+    - name: Run ruff
+      run: |
+        ruff check api/
 
     - name: Upload artifact for deployment job
       uses: actions/upload-artifact@v4
