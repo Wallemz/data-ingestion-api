@@ -34,7 +34,7 @@ jobs:
         source venv/bin/activate
 
         
-    # Cache Python dependencies to speed up builds
+    # Cache Python dependencies to speed up builds.
     - name: Cache Python dependencies
       uses: actions/cache@v4.0.0
       with:
