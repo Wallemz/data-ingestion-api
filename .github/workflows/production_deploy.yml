@@ -15,7 +15,6 @@ env:
 
 jobs:
   build:
-    if: github.event.pull_request.merged == true && startsWith(github.ref, 'refs/heads/master/')
     runs-on: $UBUNTU_VERSION
     strategy:
       matrix:
