@@ -84,7 +84,7 @@ jobs:
         with:
           app-name: 'fa-data-ingestion'
           slot-name: 'production'
-          package: $AZURE_FUNCTIONAPP_PACKAGE_PATH
+          package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
           scm-do-build-during-deployment: true
           enable-oryx-build: true
           publish-profile: $AZ_FN_APP_PUBLISH_PROFILE
