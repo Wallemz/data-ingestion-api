@@ -133,3 +133,40 @@ __blobstorage__
 __queuestorage__
 __azurite_db*__.json
 .python_packages
+
+# Ignore Terraform state files
+*.tfstate
+*.tfstate.*
+
+# Ignore crash log files
+crash.log
+
+# Ignore the .terraform directory, which holds the provider plugins and other data
+.terraform/
+.terraform.lock.hcl
+
+# Ignore Terraform plan output files
+*.tfplan
+
+# Ignore sensitive variable files
+*.tfvars
+*.tfvars.json
+
+# Ignore override files that are used to override default settings
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Ignore auto-generated backup files
+*.backup
+
+# Ignore Terraform provider binary files
+.terraform/
+.terraform/plugins/
+
+# Ignore any large or unnecessary files
+**/.terraform/*
+
+# Ignore any .DS_Store files (macOS specific)
+.DS_Store

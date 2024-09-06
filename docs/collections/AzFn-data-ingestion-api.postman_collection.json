@@ -1,0 +1,159 @@
+{
+	"info": {
+		"_postman_id": "87276546-04c4-46d8-8c97-d8e55f6c6bc5",
+		"name": "AzFn-data-ingestion-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4326117",
+		"_collection_link": "https://restless-robot-348509.postman.co/workspace/Globant~c9d71523-f4ad-476a-82a5-ad83cb65cec4/collection/4326117-87276546-04c4-46d8-8c97-d8e55f6c6bc5?action=share&source=collection_link&creator=4326117"
+	},
+	"item": [
+		{
+			"name": "Ingest Data",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"userId\": \"user_123\",\n  \"email\": \"user@example.com\",\n  \"firstName\": \"Alice\",\n  \"lastName\": \"Doe\",\n  \"flightId\": \"flight_456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7071/api/user_data",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7071",
+					"path": [
+						"api",
+						"user_data"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ingest Data Azure",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-functions-key",
+						"value": "key",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"userId\": \"WalleM\",\n  \"email\": \"william@example.com\",\n  \"firstName\": \"William\",\n  \"lastName\": \"Porras\",\n  \"flightId\": \"flight_456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://fa-data-ingestion.azurewebsites.net/api/user_data",
+					"protocol": "https",
+					"host": [
+						"fa-data-ingestion",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"user_data"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve Data",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7071/api/user_data?userId=user_123",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7071",
+					"path": [
+						"api",
+						"user_data"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "user_123"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve Data Azure",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-functions-key",
+						"value": "key",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://fa-data-ingestion.azurewebsites.net/api/user_data?userId=WalleM",
+					"protocol": "https",
+					"host": [
+						"fa-data-ingestion",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"user_data"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "WalleM"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
