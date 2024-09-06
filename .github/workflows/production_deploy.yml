@@ -8,7 +8,7 @@ on:
 
 env:
   AZURE_FUNCTIONAPP_NAME: ${{ vars.AZURE_FUNCTION_APP_NAME }}
-  AZ_FN_APP_PUBLISH_PROFILE: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_889F1DDFFEFA43718D7757FE2F1925DF }}
+  AZ_FN_APP_PUBLISH_PROFILE: ${{ secrets.AZ_FN_APP_PUBLISH_PROFILE }}
   AZURE_FUNCTIONAPP_PACKAGE_PATH: './api'
   
 jobs:
@@ -82,9 +82,9 @@ jobs:
         uses: Azure/functions-action@v1
         id: deploy-to-function
         with:
-          app-name: 'fa-data-ingestion'
+          app-name: ${{ vars.AZURE_FUNCTION_APP_NAME }}
           slot-name: 'production'
           package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
           scm-do-build-during-deployment: true
           enable-oryx-build: true
-          publish-profile: $AZ_FN_APP_PUBLISH_PROFILE
+          publish-profile: ${{ secrets.AZ_FN_APP_PUBLISH_PROFILE }}
