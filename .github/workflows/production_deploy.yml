@@ -88,3 +88,30 @@ jobs:
           scm-do-build-during-deployment: true
           enable-oryx-build: true
           publish-profile: ${{ secrets.AZ_FN_APP_PUBLISH_PROFILE }}
+
+  integration_test:
+    runs-on: ubuntu-20.04
+    needs: deploy
+    strategy:
+      matrix:
+        python-version: [3.11.2]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4.1.1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5.0.0
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pytest requests
+
+      - name: Run integration tests
+        run: |
+          pytest tests/test_integration.py
+        env:
+          FUNCTIONS_KEY: ${{ secrets.FUNCTIONS_KEY }}
